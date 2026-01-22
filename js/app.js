@@ -14,6 +14,4 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("btn-add-text").addEventListener("click", () => {
     EditorState.addElement(Elements.createText());
   });
-
-  console.log("✨ Thought Path Editor initialized");
 });

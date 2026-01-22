@@ -12,7 +12,6 @@ This project replicates the core functionalities of design tools like Figma, Fra
 
 <hr>
 
-
 🎯 Features
 🔹 1. Canvas + Element Creation
 Add rectangles<br>
@@ -64,7 +63,6 @@ Reload project on startup
 🔹 10. Export<br>
 Export full JSON
 
-
 <hr>
 
 🧩 Tech Stack<br>
@@ -76,7 +74,6 @@ LocalStorage API <br>
 No frameworks <br>
 No external libraries<br>
 
-
 <hr>
 
 "🔥 Brand Identity
@@ -87,7 +84,6 @@ A curved path transforming into a square →
 raw thoughts evolving into structured design.<br>
 Logo Style:<br>
 Ultra-minimal geometric symbol suitable for dark and light modes.
-
 
 <hr>
 
@@ -101,11 +97,10 @@ Layering, z-index, and element depth<br>
 Persisting and reloading app state<br>
 Building a micro “design tool” from scratch"
 
-
 <hr>
 
 ❤️ Credits
-Designed & developed by Piyush with some help of AI for understanding core features and implementation
+Designed & developed by Piyush with some help of AI for understanding core features and implementation & make mobile responsive with the help of Chatgpt,
 with guidance from modern product UI/UX principles,
 modular architecture standards,
 and minimal aesthetic inspiration from world-class design tools.

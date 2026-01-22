@@ -337,4 +337,107 @@ body {
 .layer-item__name {
   font-size: 13px;
   color: #e5e7eb;
+}
+
+@media (max-width: 768px) {
+  html,
+  body {
+    height: auto !important;
+    overflow-y: visible !important;
+    overflow-x: hidden !important;
+  }
+  #app {
+    height: auto !important;
+    overflow-y: visible !important;
+  }
+  .header {
+    flex-direction: column;
+    height: auto !important;
+    padding: 12px;
+    gap: 10px;
+  }
+  .header__actions {
+    width: 100%;
+    justify-content: center;
+    gap: 12px;
+  }
+  .editor {
+    display: flex;
+    flex-direction: column !important;
+    width: 100%;
+    height: auto !important;
+    min-height: 100vh !important;
+    overflow-y: visible !important;
+    overflow-x: hidden !important;
+  }
+  .toolbox {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    white-space: nowrap;
+    border-right: none;
+    border-bottom: 1px solid #2a2d36;
+  }
+  .toolbox .panel__title {
+    display: none;
+  }
+  .toolbox .tool-btn {
+    flex: 0 0 auto;
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    width: auto;
+  }
+  .canvas-container {
+    width: 100% !important;
+    height: 70vh !important;
+    min-height: 350px !important;
+    padding: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: visible !important;
+  }
+  .canvas {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: inherit !important;
+    max-height: 100%;
+    border-radius: 8px;
+  }
+  .sidebar {
+    width: 100% !important;
+    border-left: none;
+    border-top: 1px solid #2a2d36;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    overflow: visible !important;
+  }
+  .sidebar .panel {
+    width: 100%;
+    padding: 14px;
+  }
+  .prop-row {
+    flex-direction: column !important;
+    gap: 8px !important;
+  }
+  .prop-field {
+    width: 100% !important;
+  }
+  .prop-input--full {
+    width: 100% !important;
+  }
+  .layers-list,
+  .layer-item {
+    width: 100% !important;
+  }
+  .canvas-element {
+    max-width: 90%;
+  }
 }/*# sourceMappingURL=style.css.map */
