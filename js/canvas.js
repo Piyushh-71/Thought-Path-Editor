@@ -43,9 +43,6 @@ const Canvas = {
           <div class="resize-handle resize-handle--se"></div>
           <div class="rotate-handle"></div>
         `;
-        if (el.type === "text") {
-          div.insertAdjacentText("afterbegin", el.text);
-        }
       }
 
       this.container.appendChild(div);

@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", () => {
   Layers.init();
   Keyboard.init();
   Storage.init();
-
   Storage.load();
 
   document.getElementById("btn-add-rect").addEventListener("click", () => {
