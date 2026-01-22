@@ -1,0 +1,390 @@
+$bg-main: #0d0f14;
+$bg-canvas: #11141a;
+$bg-panel: #161922;
+$bg-input: #1c1f28;
+$border-color: #2a2d36;
+
+$text-primary: #e5e7eb;
+$text-secondary: #9ca3af;
+$text-disabled: #6b7280;
+
+$primary: #67cfff;
+$primary-hover: #7bd7ff;
+$selection-fill: #e4f4ff;
+$error: #ff5a5a;
+
+$font-family:
+  "Inter",
+  -apple-system,
+  BlinkMacSystemFont,
+  sans-serif;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: $font-family;
+  font-size: 14px;
+  background: $bg-main;
+  color: $text-primary;
+  overflow: hidden;
+  height: 100vh;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  height: 80px;
+  background: $bg-panel;
+  border-bottom: 1px solid $border-color;
+
+  &__brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__logo {
+    img {
+      height: 40px;
+      width: 60px;
+      object-fit: cover;
+    }
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: 15px;
+    color: $text-primary;
+  }
+
+  &__actions {
+    display: flex;
+    gap: 8px;
+  }
+}
+
+.btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-family: $font-family;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+
+  &--primary {
+    background: $primary;
+    color: $bg-main;
+
+    &:hover {
+      background: $primary-hover;
+    }
+  }
+
+  &--secondary {
+    background: $bg-input;
+    color: $text-primary;
+    border: 1px solid $border-color;
+
+    &:hover {
+      background: lighten($bg-input, 5%);
+    }
+  }
+}
+
+.editor {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.toolbox {
+  width: 200px;
+  padding: 16px;
+  background: $bg-panel;
+  border-right: 1px solid $border-color;
+}
+
+.tool-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  background: $bg-input;
+  border: 1px solid $border-color;
+  border-radius: 6px;
+  color: $text-primary;
+  font-family: $font-family;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+
+  &:hover {
+    border-color: $primary;
+    background: rgba($primary, 0.1);
+  }
+
+  &__icon {
+    font-size: 16px;
+    color: $text-secondary;
+  }
+}
+
+.canvas-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $bg-main;
+  padding: 24px;
+}
+
+.canvas {
+  width: 100%;
+  height: 100%;
+  background: $bg-canvas;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.canvas-element {
+  position: absolute;
+  cursor: move;
+  user-select: none;
+
+  &--selected {
+    outline: 2px solid $primary;
+    outline-offset: -1px;
+  }
+
+  &--rect {
+    border-radius: 4px;
+  }
+
+  &--text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: $text-primary;
+    background: transparent !important;
+  }
+}
+
+.resize-handle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: $selection-fill;
+  border: 2px solid $primary;
+  border-radius: 2px;
+
+  &--nw {
+    top: -5px;
+    left: -5px;
+    cursor: nwse-resize;
+  }
+  &--ne {
+    top: -5px;
+    right: -5px;
+    cursor: nesw-resize;
+  }
+  &--sw {
+    bottom: -5px;
+    left: -5px;
+    cursor: nesw-resize;
+  }
+  &--se {
+    bottom: -5px;
+    right: -5px;
+    cursor: nwse-resize;
+  }
+}
+
+.rotate-handle {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 12px;
+  background: $primary;
+  border-radius: 50%;
+  cursor: grab;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    width: 1px;
+    height: 18px;
+    background: $primary;
+    transform: translateX(-50%);
+  }
+}
+
+.sidebar {
+  width: 280px;
+  background: $bg-panel;
+  border-left: 1px solid $border-color;
+  display: flex;
+  flex-direction: column;
+}
+
+.panel {
+  padding: 16px;
+  border-bottom: 1px solid $border-color;
+
+  &__title {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: $text-secondary;
+    margin-bottom: 12px;
+  }
+
+  &__empty {
+    color: $text-disabled;
+    font-size: 13px;
+    text-align: center;
+    padding: 20px 0;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+.prop-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.prop-label {
+  font-size: 12px;
+  color: $text-secondary;
+}
+
+.prop-row {
+  display: flex;
+  gap: 8px;
+}
+
+.prop-field {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  background: $bg-input;
+  border: 1px solid $border-color;
+  border-radius: 6px;
+  padding: 0 8px;
+
+  &--full {
+    flex: 1;
+  }
+
+  &__label,
+  &__suffix {
+    font-size: 12px;
+    color: $text-disabled;
+  }
+}
+
+.prop-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: $text-primary;
+  font-family: $font-family;
+  font-size: 13px;
+  padding: 8px 4px;
+  outline: none;
+  width: 100%;
+
+  &--full {
+    width: 100%;
+    background: $bg-input;
+    border: 1px solid $border-color;
+    border-radius: 6px;
+    padding: 8px 12px;
+  }
+
+  &::-webkit-inner-spin-button {
+    display: none;
+  }
+}
+
+.prop-color {
+  width: 100%;
+  height: 36px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background: transparent;
+}
+
+.layers-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.layer-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  background: $bg-input;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+
+  &:hover {
+    background: lighten($bg-input, 3%);
+  }
+
+  &--selected {
+    border-color: $primary;
+    background: rgba($primary, 0.1);
+  }
+
+  &__icon {
+    font-size: 14px;
+    color: $text-secondary;
+  }
+
+  &__name {
+    font-size: 13px;
+    color: $text-primary;
+  }
+}

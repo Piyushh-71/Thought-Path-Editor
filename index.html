@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thought Path Editor</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="./logo.png" type="image/x-icon" />
+  </head>
+  <body>
+    <div id="app">
+      <header class="header">
+        <div class="header__brand">
+          <div class="header__logo"><img src="./logo.png" alt="" /></div>
+          <span class="header__title">Thought Path Design-Tool</span>
+        </div>
+        <div class="header__actions">
+          <button class="btn btn--secondary" id="btn-save">Save</button>
+          <button class="btn btn--primary" id="btn-export">Export JSON</button>
+        </div>
+      </header>
+      <main class="editor">
+        <aside class="toolbox">
+          <h3 class="panel__title">Tools</h3>
+          <button class="tool-btn" id="btn-add-rect">
+            <span class="tool-btn__icon">▢</span>
+            Rectangle
+          </button>
+          <button class="tool-btn" id="btn-add-text">
+            <span class="tool-btn__icon">T</span>
+            Text
+          </button>
+        </aside>
+
+        <section class="canvas-container">
+          <div class="canvas" id="canvas"></div>
+        </section>
+
+        <aside class="sidebar">
+          <div class="panel" id="properties-panel">
+            <h3 class="panel__title">Properties</h3>
+            <div class="panel__empty" id="no-selection">Select an element</div>
+            <div
+              class="panel__content"
+              id="properties-content"
+              style="display: none"
+            >
+              <div class="prop-group">
+                <label class="prop-label">Position</label>
+                <div class="prop-row">
+                  <div class="prop-field">
+                    <span class="prop-field__label">X</span>
+                    <input type="number" class="prop-input" id="prop-x" />
+                  </div>
+                  <div class="prop-field">
+                    <span class="prop-field__label">Y</span>
+                    <input type="number" class="prop-input" id="prop-y" />
+                  </div>
+                </div>
+              </div>
+              <div class="prop-group">
+                <label class="prop-label">Size</label>
+                <div class="prop-row">
+                  <div class="prop-field">
+                    <span class="prop-field__label">W</span>
+                    <input type="number" class="prop-input" id="prop-width" />
+                  </div>
+                  <div class="prop-field">
+                    <span class="prop-field__label">H</span>
+                    <input type="number" class="prop-input" id="prop-height" />
+                  </div>
+                </div>
+              </div>
+              <div class="prop-group">
+                <label class="prop-label">Rotation</label>
+                <div class="prop-row">
+                  <div class="prop-field prop-field--full">
+                    <input
+                      type="number"
+                      class="prop-input"
+                      id="prop-rotation"
+                    />
+                    <span class="prop-field__suffix">°</span>
+                  </div>
+                </div>
+              </div>
+              <div class="prop-group" id="color-group">
+                <label class="prop-label">Color</label>
+                <input type="color" class="prop-color" id="prop-color" />
+              </div>
+              <div class="prop-group" id="text-group" style="display: none">
+                <label class="prop-label">Text</label>
+                <input
+                  type="text"
+                  class="prop-input prop-input--full"
+                  id="prop-text"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <h3 class="panel__title">Layers</h3>
+            <ul class="layers-list" id="layers-list"></ul>
+          </div>
+        </aside>
+      </main>
+    </div>
+    <script src="js/state.js"></script>
+    <script src="js/elements.js"></script>
+    <script src="js/drag.js"></script>
+    <script src="js/resize.js"></script>
+    <script src="js/rotate.js"></script>
+    <script src="js/properties.js"></script>
+    <script src="js/layers.js"></script>
+    <script src="js/keyboard.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/canvas.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

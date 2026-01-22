@@ -1,0 +1,340 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  background: #0d0f14;
+  color: #e5e7eb;
+  overflow: hidden;
+  height: 100vh;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  height: 80px;
+  background: #161922;
+  border-bottom: 1px solid #2a2d36;
+}
+.header__brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.header__logo img {
+  height: 40px;
+  width: 60px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.header__title {
+  font-weight: 600;
+  font-size: 15px;
+  color: #e5e7eb;
+}
+.header__actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.btn--primary {
+  background: #67cfff;
+  color: #0d0f14;
+}
+.btn--primary:hover {
+  background: #7bd7ff;
+}
+.btn--secondary {
+  background: #1c1f28;
+  color: #e5e7eb;
+  border: 1px solid #2a2d36;
+}
+.btn--secondary:hover {
+  background: rgb(38.5, 42.625, 55);
+}
+
+.editor {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.toolbox {
+  width: 200px;
+  padding: 16px;
+  background: #161922;
+  border-right: 1px solid #2a2d36;
+}
+
+.tool-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  background: #1c1f28;
+  border: 1px solid #2a2d36;
+  border-radius: 6px;
+  color: #e5e7eb;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.tool-btn:hover {
+  border-color: #67cfff;
+  background: rgba(103, 207, 255, 0.1);
+}
+.tool-btn__icon {
+  font-size: 16px;
+  color: #9ca3af;
+}
+
+.canvas-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0d0f14;
+  padding: 24px;
+}
+
+.canvas {
+  width: 100%;
+  height: 100%;
+  background: #11141a;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.canvas-element {
+  position: absolute;
+  cursor: move;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+.canvas-element--selected {
+  outline: 2px solid #67cfff;
+  outline-offset: -1px;
+}
+.canvas-element--rect {
+  border-radius: 4px;
+}
+.canvas-element--text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: #e5e7eb;
+  background: transparent !important;
+}
+
+.resize-handle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #e4f4ff;
+  border: 2px solid #67cfff;
+  border-radius: 2px;
+}
+.resize-handle--nw {
+  top: -5px;
+  left: -5px;
+  cursor: nwse-resize;
+}
+.resize-handle--ne {
+  top: -5px;
+  right: -5px;
+  cursor: nesw-resize;
+}
+.resize-handle--sw {
+  bottom: -5px;
+  left: -5px;
+  cursor: nesw-resize;
+}
+.resize-handle--se {
+  bottom: -5px;
+  right: -5px;
+  cursor: nwse-resize;
+}
+
+.rotate-handle {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 12px;
+  background: #67cfff;
+  border-radius: 50%;
+  cursor: grab;
+}
+.rotate-handle::before {
+  content: "";
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  width: 1px;
+  height: 18px;
+  background: #67cfff;
+  transform: translateX(-50%);
+}
+
+.sidebar {
+  width: 280px;
+  background: #161922;
+  border-left: 1px solid #2a2d36;
+  display: flex;
+  flex-direction: column;
+}
+
+.panel {
+  padding: 16px;
+  border-bottom: 1px solid #2a2d36;
+}
+.panel__title {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #9ca3af;
+  margin-bottom: 12px;
+}
+.panel__empty {
+  color: #6b7280;
+  font-size: 13px;
+  text-align: center;
+  padding: 20px 0;
+}
+.panel__content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.prop-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.prop-label {
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.prop-row {
+  display: flex;
+  gap: 8px;
+}
+
+.prop-field {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  background: #1c1f28;
+  border: 1px solid #2a2d36;
+  border-radius: 6px;
+  padding: 0 8px;
+}
+.prop-field--full {
+  flex: 1;
+}
+.prop-field__label, .prop-field__suffix {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.prop-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: #e5e7eb;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 13px;
+  padding: 8px 4px;
+  outline: none;
+  width: 100%;
+}
+.prop-input--full {
+  width: 100%;
+  background: #1c1f28;
+  border: 1px solid #2a2d36;
+  border-radius: 6px;
+  padding: 8px 12px;
+}
+.prop-input::-webkit-inner-spin-button {
+  display: none;
+}
+
+.prop-color {
+  width: 100%;
+  height: 36px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background: transparent;
+}
+
+.layers-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.layer-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  background: #1c1f28;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.layer-item:hover {
+  background: rgb(34.3, 37.975, 49);
+}
+.layer-item--selected {
+  border-color: #67cfff;
+  background: rgba(103, 207, 255, 0.1);
+}
+.layer-item__icon {
+  font-size: 14px;
+  color: #9ca3af;
+}
+.layer-item__name {
+  font-size: 13px;
+  color: #e5e7eb;
+}/*# sourceMappingURL=style.css.map */
