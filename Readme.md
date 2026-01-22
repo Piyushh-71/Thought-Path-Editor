@@ -10,6 +10,9 @@ It transforms free-flowing ideas into structured visual layouts through a clean 
 
 This project replicates the core functionalities of design tools like Figma, Framer, and Linear, but built entirely with hand-crafted DOM manipulation and modular JavaScript architecture.
 
+<hr>
+
+
 🎯 Features
 🔹 1. Canvas + Element Creation
 Add rectangles<br>
@@ -61,6 +64,9 @@ Reload project on startup
 🔹 10. Export<br>
 Export full JSON
 
+
+<hr>
+
 🧩 Tech Stack<br>
 
 HTML<br>
@@ -69,6 +75,9 @@ JavaScript (DOM API, ES Modules)<br>
 LocalStorage API <br>
 No frameworks <br>
 No external libraries<br>
+
+
+<hr>
 
 "🔥 Brand Identity
 Name: ThoughtPath Editor"
@@ -79,6 +88,9 @@ raw thoughts evolving into structured design.<br>
 Logo Style:<br>
 Ultra-minimal geometric symbol suitable for dark and light modes.
 
+
+<hr>
+
 "🧠 What I Learned <br>
 JavaScript DOM architecture for complex UI<br>
 State management without frameworks<br>
@@ -88,6 +100,9 @@ Event-driven interaction (drag, resize, rotation)<br>
 Layering, z-index, and element depth<br>
 Persisting and reloading app state<br>
 Building a micro “design tool” from scratch"
+
+
+<hr>
 
 ❤️ Credits
 Designed & developed by Piyush with some help of AI for understanding core features and implementation
