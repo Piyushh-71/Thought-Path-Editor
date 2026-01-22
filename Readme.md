@@ -12,7 +12,8 @@ This project replicates the core functionalities of design tools like Figma, Fra
 
 <hr>
 
-🎯 Features
+🎯 Features <br>
+
 🔹 1. Canvas + Element Creation
 Add rectangles<br>
 Add text boxes<br>
